@@ -1,0 +1,87 @@
+/* KOLDAICE — DualShock 4 | deep violet + strong neon
+   Gamepad Viewer editcss overlay. Keeps built-in layout where selectors match. */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+
+:root {
+  --kd-deep: #160020;
+  --kd-purple: #6500a8;
+  --kd-neon: #d000ff;
+  --kd-hot: #f000ff;
+}
+
+/* Overall glow / darken the built-in purple skin */
+.edit .controller,
+.edit.controller,
+.edit .controller-body,
+.edit .body {
+  filter: brightness(.72) saturate(1.5)
+    drop-shadow(0 0 2px #b900ff)
+    drop-shadow(0 0 7px rgba(208,0,255,.9))
+    drop-shadow(0 0 14px rgba(148,0,255,.65));
+}
+
+/* General neon edge glow */
+.edit .triggers,
+.edit .bumpers,
+.edit .touchpad,
+.edit .sticks,
+.edit .dpad,
+.edit .face,
+.edit .button {
+  filter: drop-shadow(0 0 2px rgba(205,0,255,.85))
+          drop-shadow(0 0 6px rgba(160,0,255,.7));
+}
+
+/* Touchpad darker with a violet edge */
+.edit .touchpad,
+.edit .button.touchpad {
+  filter: brightness(.58) saturate(1.8)
+          drop-shadow(0 0 3px #d000ff)
+          drop-shadow(0 0 9px #a000ff);
+}
+
+/* D-pad and analog sticks */
+.edit .dpad,
+.edit .stick,
+.edit .sticks,
+.edit .analog {
+  filter: brightness(.82) saturate(1.8)
+          drop-shadow(0 0 3px #c000ff)
+          drop-shadow(0 0 9px rgba(208,0,255,.95));
+}
+
+/* Strong flash when a control is pressed */
+.edit .pressed,
+.edit .button.pressed,
+.edit .stick.pressed,
+.edit .trigger.pressed,
+.edit .bumper.pressed {
+  filter: brightness(1.45) saturate(1.8)
+          drop-shadow(0 0 3px #fff)
+          drop-shadow(0 0 9px #d000ff)
+          drop-shadow(0 0 17px #a000ff) !important;
+}
+
+/* Preserve classic PlayStation button colors and add glow */
+.edit .cross, .edit .button.cross { filter: drop-shadow(0 0 5px #168cff); }
+.edit .circle, .edit .button.circle { filter: drop-shadow(0 0 5px #ff315f); }
+.edit .square, .edit .button.square { filter: drop-shadow(0 0 5px #ff39ed); }
+.edit .triangle, .edit .button.triangle { filter: drop-shadow(0 0 5px #3dffd2); }
+
+/* Optional label — placement may need adjustment for the exact skin */
+.edit .controller::after {
+  content: "KOLDAICE";
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  color: #efb4ff;
+  font-family: Orbitron, "Arial Black", sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 0 0 3px #fff, 0 0 7px #d000ff, 0 0 14px #a000ff;
+  pointer-events: none;
+  white-space: nowrap;
+}
