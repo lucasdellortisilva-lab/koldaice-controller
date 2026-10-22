@@ -85,3 +85,33 @@
   pointer-events: none;
   white-space: nowrap;
 }
+
+/* KOLDAICE — nome neon no touchpad */
+.edit .touchpad {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.edit .touchpad::after {
+  content: "KOLDAICE";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  color: #f4d8ff;
+  font-family: Orbitron, "Arial Black", sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  pointer-events: none;
+
+  text-shadow:
+    0 0 2px #ffffff,
+    0 0 5px #e100ff,
+    0 0 10px #c000ff,
+    0 0 16px #8a00ff;
+}
+
